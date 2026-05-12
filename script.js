@@ -5,7 +5,7 @@ const products = [
     category: "laptop",
     price: 79827,
     tag: "Popular",
-    image: "Pictures%20Item/Nitro-Laptop.png",
+    image: "items/Nitro-Laptop.png",
     specs: {
       cpu: "AMD Ryzen™ 7 350 processor",
       gpu: "NVIDIA® GeForce RTX™ 5060",
@@ -22,7 +22,7 @@ const products = [
     category: "laptop",
     price: 159655,
     tag: "Gaming",
-    image: "Pictures%20Item/Predator-Laptop.png",
+    image: "items/Predator-Laptop.png",
     specs: {
       cpu: "Intel® Core™ Ultra 9 Series 2",
       gpu: "NVIDIA® GeForce RTX™ 5070",
@@ -38,7 +38,7 @@ const products = [
     category: "laptop",
     price: 67546,
     tag: "Popular",
-    image: "Pictures%20Item/Asus%20TUF%20Gaming.png",
+    image: "items/Asus-TUF-Gaming.png",
     specs: {
       cpu: "AMD Ryzen™ 9 270",
       gpu: "NVIDIA® GeForce RTX™ ",
@@ -54,7 +54,7 @@ const products = [
     category: "desktop",
     price: 33778,
     tag: "Best Value",
-    image: "Pictures%20Item/Aspire-computer.png",
+    image: "items/Aspire-computer.png",
     specs: {
       cpu: "AMD Ryzen™ 5 7430U",
       gpu: "",
@@ -70,7 +70,7 @@ const products = [
     category: "desktop",
     price: 79779,
     tag: "Pro",
-    image: "Pictures%20Item/Imac.png",
+    image: "items/Imac.png",
     specs: {
       cpu: "Apple M4 chip",
       gpu: "",
@@ -86,7 +86,7 @@ const products = [
     category: "laptop",
     price: 15000,
     tag: "Popular",
-    image: "Pictures%20Item/T480%20Lenovo.png",
+    image: "items/T480-Lenovo.png",
     specs: {
       cpu: "Intel Core i5-8350U",
       gpu: "Intel UHD Graphics 620",
