@@ -5,7 +5,7 @@ const products = [
     category: "laptop",
     price: 79827,
     tag: "Popular",
-    image: "items/Nitro-Laptop.png",
+    image: "Pictures Item/Nitro-Laptop.png",
     specs: {
       cpu: "AMD Ryzen™ 7 350 processor",
       gpu: "NVIDIA® GeForce RTX™ 5060",
@@ -22,7 +22,7 @@ const products = [
     category: "laptop",
     price: 159655,
     tag: "Gaming",
-    image: "items/Predator-Laptop.png",
+    image: "Pictures Item/Predator-Laptop.png",
     specs: {
       cpu: "Intel® Core™ Ultra 9 Series 2",
       gpu: "NVIDIA® GeForce RTX™ 5070",
@@ -38,7 +38,7 @@ const products = [
     category: "laptop",
     price: 67546,
     tag: "Popular",
-    image: "items/Asus-TUF-Gaming.png",
+    image: "Pictures Item/Asus TUF Gaming.png",
     specs: {
       cpu: "AMD Ryzen™ 9 270",
       gpu: "NVIDIA® GeForce RTX™ ",
@@ -54,7 +54,7 @@ const products = [
     category: "desktop",
     price: 33778,
     tag: "Best Value",
-    image: "items/Aspire-computer.png",
+    image: "Pictures Item/Aspire-computer.png",
     specs: {
       cpu: "AMD Ryzen™ 5 7430U",
       gpu: "",
@@ -70,7 +70,7 @@ const products = [
     category: "desktop",
     price: 79779,
     tag: "Pro",
-    image: "items/Imac.png",
+    image: "Pictures Item/Imac.png",
     specs: {
       cpu: "Apple M4 chip",
       gpu: "",
@@ -86,7 +86,7 @@ const products = [
     category: "laptop",
     price: 15000,
     tag: "Popular",
-    image: "items/T480-Lenovo.png",
+    image: "Pictures Item/T480 Lenovo.png",
     specs: {
       cpu: "Intel Core i5-8350U",
       gpu: "Intel UHD Graphics 620",
@@ -176,6 +176,14 @@ function updateCart() {
 function removeFromCart(id) {
   cart = cart.filter((i) => i.id !== id);
   updateCart();
+}
+
+function checkout() {
+  const total = document.getElementById("cart-total").textContent;
+  alert(`Salamat sa pagbili sa TechCorps! Ang iyong order na nagkakahalaga ng ${total} ay pino-proseso na. Padadalhan ka namin ng email para sa details.`);
+  cart = [];
+  updateCart();
+  toggleCart();
 }
 
 function toggleCart() {
