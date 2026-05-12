@@ -1,6 +1,6 @@
 # TechCorps Store
 
-**TechCorps** is a premier tech destination dedicated to providing high-performance computing solutions. We aren't just a retailer; we are a specialized group of tech enthusiasts and engineers committed to equipping editors, gamers, and professionals with next-gen hardware that can keep up with the demands of the modern digital world.
+**TechCorps** s an e-commerce store built for creators and tech lovers. We sell high-performance laptops and desktops specifically selected for video editing, photo retouching, and heavy tech workflows. If you’re tired of slow machines and just want a store that sells the "good stuff" that actually works for your projects, you’re in the right place.
 
 ## 🛡️ Why Choose Tech Corps?
 In a market saturated with generic laptops and desktops, Tech Corps stands out by focusing on **Elite Standards**. We believe that your machine should be an extension of your ambition.
