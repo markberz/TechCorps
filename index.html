@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechCorps Store</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full overflow-auto">
+    <div class="w-full h-full">
+      <nav
+        class="w-full border-b border-slate-700 sticky top-0 z-50 bg-slate-900/80 backdrop-blur"
+      >
+        <div
+          class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-3">
+            <img
+              id="nav-logo"
+              src="Pictures%20Item/Logo.png"
+              alt="Logo"
+              class="w-14 h-14 rounded-lg"
+              loading="lazy"
+              onerror="
+                console.error('Logo failed to load:', this.src);
+                this.style.background = '#06b6d4';
+                this.alt = 'Logo unavailable';
+              "
+            />
+            <span id="nav-store-name" class="font-bold text-xl text-primary"></span>
+          </div>
+          <div class="hidden md:flex items-center gap-8 text-sm">
+            <a
+              href="#products"
+              class="text-secondary hover:text-primary transition font-medium"
+              >Products</a
+            >
+            <div class="nav-separator"></div>
+            <a
+              href="#support"
+              class="text-secondary hover:text-primary transition font-medium"
+              >Support</a
+            >
+            <div class="nav-separator"></div>
+            <a
+              href="#deals"
+              class="text-secondary hover:text-primary transition font-medium"
+              >Deals</a
+            >
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              class="p-2 hover:bg-slate-800 rounded-lg transition"
+              onclick="toggleSearchModal()"
+            >
+              <i data-lucide="search" class="w-5 h-5 text-secondary"></i>
+            </button>
+            <button
+              class="relative p-2 hover:bg-slate-800 rounded-lg transition"
+              id="cart-btn"
+            >
+              <i data-lucide="shopping-bag" class="w-5 h-5 text-secondary"></i
+              ><span
+                id="cart-count"
+                class="absolute -top-1 -right-1 w-5 h-5 badge-gradient rounded-full text-[10px] font-bold flex items-center justify-center text-slate-900"
+                >0</span
+              >
+            </button>
+          </div>
+        </div>
+      </nav>
+      <section
+        class="w-full py-20 md:py-32 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+      >
+        <div
+          class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12"
+        >
+          <div class="flex-1 space-y-6">
+            <h1
+              id="hero-title"
+              class="text-5xl md:text-7xl font-800 leading-tight text-primary"
+            >
+              Next-Gen<br />
+              <span class="text-cyan-400">Computing Power</span>
+            </h1>
+            <p
+              id="hero-subtitle"
+              class="text-secondary text-lg max-w-md leading-relaxed"
+            >
+              Premium laptops & desktops precision-built for editors, gamers,
+              and professionals.
+            </p>
+            <div class="flex gap-4 pt-2">
+              <a
+                href="#products"
+                class="px-6 py-3 badge-gradient rounded-lg text-sm font-bold text-white hover:shadow-lg transition"
+                >Shop Now</a
+              ><a
+                href="#categories"
+                class="px-6 py-3 border-2 border-slate-600 rounded-lg text-sm font-bold text-primary hover:bg-slate-800 hover:border-cyan-400 transition"
+                >Browse Categories</a
+              >
+            </div>
+          </div>
+          <div class="flex-1 flex justify-center">
+            <div
+              class="w-full max-w-md rounded-2xl shadow-2xl border-2 border-slate-700 overflow-hidden bg-gradient-to-br from-slate-700 to-slate-600"
+              style="height: 400px"
+            >
+              <div
+                id="model-viewer"
+                class="w-full h-full flex items-center justify-center relative group bg-gradient-to-br from-slate-800 to-slate-900"
+              >
+              <model-viewer
+                src="Pictures%20Item/Laptop%203d.glb"
+                alt="Next-gen Gaming Laptop 3D Model"
+                auto-rotate
+                camera-controls
+                shadow-intensity="1"
+                environment-image="neutral"
+                loading="eager"
+                class="w-full h-full bg-transparent outline-none"
+              >
+                <div slot="poster" class="flex items-center justify-center h-full text-secondary text-sm">
+                  <div class="animate-pulse">Loading 3D Experience...</div>
+                </div>
+              </model-viewer>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="categories" class="w-full py-16 px-6 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-3xl font-bold mb-8 text-primary">Shop by Category</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div
+              class="p-6 bg-slate-700/50 border-2 border-slate-600 rounded-2xl hover:border-cyan-400 hover:bg-slate-600 transition cursor-pointer text-center space-y-3 card-hover"
+            >
+              <div
+                class="w-12 h-12 mx-auto rounded-xl bg-slate-600 flex items-center justify-center"
+              >
+                <i data-lucide="laptop" class="w-6 h-6 text-cyan-400"></i>
+              </div>
+              <p
+                class="font-bold text-sm text-slate-200 group-hover:text-slate-100"
+              >
+                Laptops
+              </p>
+            </div>
+            <div
+              class="p-6 bg-slate-700/50 border-2 border-slate-600 rounded-2xl hover:border-cyan-400 hover:bg-slate-600 transition cursor-pointer text-center space-y-3 card-hover"
+            >
+              <div
+                class="w-12 h-12 mx-auto rounded-xl bg-slate-600 flex items-center justify-center"
+              >
+                <i data-lucide="monitor" class="w-6 h-6 text-cyan-400"></i>
+              </div>
+              <p
+                class="font-bold text-sm text-slate-200 group-hover:text-slate-100"
+              >
+                Desktops
+              </p>
+            </div>
+            <div
+              class="p-6 bg-slate-700/50 border-2 border-slate-600 rounded-2xl hover:border-cyan-400 hover:bg-slate-600 transition cursor-pointer text-center space-y-3 card-hover"
+            >
+              <div
+                class="w-12 h-12 mx-auto rounded-xl bg-slate-600 flex items-center justify-center"
+              >
+                <i data-lucide="gamepad-2" class="w-6 h-6 text-cyan-400"></i>
+              </div>
+              <p
+                class="font-bold text-sm text-slate-200 group-hover:text-slate-100"
+              >
+                Gaming
+              </p>
+            </div>
+            <div
+              class="p-6 bg-slate-700/50 border-2 border-slate-600 rounded-2xl hover:border-cyan-400 hover:bg-slate-600 transition cursor-pointer text-center space-y-3 card-hover"
+            >
+              <div
+                class="w-12 h-12 mx-auto rounded-xl bg-slate-600 flex items-center justify-center"
+              >
+                <i data-lucide="hard-drive" class="w-6 h-6 text-cyan-400"></i>
+              </div>
+              <p
+                class="font-bold text-sm text-slate-200 group-hover:text-slate-100"
+              >
+                Components
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="products" class="w-full py-16 px-6 bg-slate-900">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold text-primary">Featured Products</h2>
+            <div class="flex gap-2">
+              <button
+                class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg bg-cyan-500 text-slate-900 border-2 border-cyan-500"
+                data-filter="all"
+              >
+                All</button
+              ><button
+                class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg text-primary border-2 border-slate-600 hover:border-cyan-400 transition"
+                data-filter="laptop"
+              >
+                Laptops</button
+              ><button
+                class="filter-btn px-4 py-1.5 text-xs font-bold rounded-lg text-primary border-2 border-slate-600 hover:border-cyan-400 transition"
+                data-filter="desktop"
+              >
+                Desktops
+              </button>
+            </div>
+          </div>
+          <div
+            id="product-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          ></div>
+        </div>
+      </section>
+      <section id="support" class="w-full py-16 px-6 bg-slate-800">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-3xl font-bold text-primary mb-12">24/7 Support</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div
+              class="bg-slate-700 border-2 border-slate-600 rounded-2xl p-8 space-y-4 card-hover"
+            >
+              <div
+                class="w-12 h-12 rounded-lg badge-gradient flex items-center justify-center"
+              >
+                <i data-lucide="headphones" class="w-6 h-6 text-white"></i>
+              </div>
+              <h3 class="text-lg font-bold text-primary">Live Chat Support</h3>
+              <p class="text-secondary text-sm">
+                Get instant help from our expert team available 24/7
+              </p>
+              <button
+                class="text-cyan-300 font-bold text-sm hover:text-cyan-200 transition"
+              >
+                Start Chat →
+              </button>
+            </div>
+            <div
+              class="bg-slate-700 border-2 border-slate-600 rounded-2xl p-8 space-y-4 card-hover"
+            >
+              <div
+                class="w-12 h-12 rounded-lg badge-gradient flex items-center justify-center"
+              >
+                <i data-lucide="mail" class="w-6 h-6 text-white"></i>
+              </div>
+              <h3 class="text-lg font-bold text-primary">Email Support</h3>
+              <p class="text-secondary text-sm">
+                support@techcorp.com - Response within 24 hours
+              </p>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=support@techcorp.com"
+                target="_blank"
+                class="text-cyan-300 font-bold text-sm hover:text-cyan-200 transition"
+              >
+                Send Email →
+              </a>
+            </div>
+            <div
+              class="bg-slate-700 border-2 border-slate-600 rounded-2xl p-8 space-y-4 card-hover"
+            >
+              <div
+                class="w-12 h-12 rounded-lg badge-gradient flex items-center justify-center"
+              >
+                <i data-lucide="book-open" class="w-6 h-6 text-white"></i>
+              </div>
+              <h3 class="text-lg font-bold text-primary">Knowledge Base</h3>
+              <p class="text-secondary text-sm">
+                Browse FAQs, guides, and troubleshooting articles
+              </p>
+              <a
+                href="https://www.laptopinventory.com/index.php"
+                target="_blank"
+                class="text-cyan-300 font-bold text-sm hover:text-cyan-200 transition"
+              >
+                View Docs →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="deals"
+        class="w-full py-16 px-6 bg-slate-900 border-t border-slate-700"
+      >
+        <div class="max-w-7xl mx-auto">
+          <div
+            class="relative overflow-hidden rounded-3xl p-10 md:p-14 bg-gradient-to-br from-slate-800 to-slate-700 border-2 border-cyan-500/30"
+          >
+            <div class="relative z-10 max-w-lg space-y-4">
+              <span
+                class="mono text-cyan-300 text-sm font-bold uppercase tracking-widest"
+                >LIMITED TIME</span
+              >
+              <h3 class="text-3xl md:text-4xl font-bold text-primary">
+                Up to 30% Off<br />
+                Gaming Laptops
+              </h3>
+              <p class="text-secondary">
+                Upgrade your setup with RTX 40-series laptops at unbeatable
+                prices.
+              </p>
+              <button
+                class="mt-4 px-6 py-3 btn-primary rounded-lg text-sm font-bold"
+              >
+                View Deals
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="w-full border-t border-slate-700 py-10 px-6 bg-slate-800">
+        <div
+          class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8 text-sm text-secondary"
+        >
+          <div class="space-y-3">
+            <p id="footer-store-name" class="text-lg font-bold text-primary">
+              TechCorps
+            </p>
+            <p class="max-w-xs">
+              Premium computing hardware for every need. Fast shipping, expert
+              support.
+            </p>
+          </div>
+          <div class="flex gap-12">
+            <div class="space-y-2">
+              <p class="text-primary font-bold">Shop</p>
+              <button
+                onclick="setCategoryFilter('laptop')"
+                class="block hover:text-primary cursor-pointer transition text-left"
+              >
+                Laptops
+              </button>
+              <button
+                onclick="setCategoryFilter('desktop')"
+                class="block hover:text-primary cursor-pointer transition text-left"
+              >
+                Desktops
+              </button>
+              <button
+                onclick="setCategoryFilter('gaming')"
+                class="block hover:text-primary cursor-pointer transition text-left"
+              >
+                Gaming
+              </button>
+            </div>
+            <div class="space-y-2">
+              <p class="text-primary font-bold">Support</p>
+              <a
+                href="#support"
+                class="block hover:text-primary cursor-pointer transition"
+                >Contact</a
+              >
+              <p class="hover:text-primary cursor-pointer transition">
+                Returns
+              </p>
+              <p class="hover:text-primary cursor-pointer transition">FAQ</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div
+        id="cart-drawer"
+        class="fixed inset-0 z-[100] pointer-events-none opacity-0 transition-opacity duration-300"
+      >
+        <div class="absolute inset-0 bg-black/30" onclick="toggleCart()"></div>
+        <div
+          class="absolute right-0 top-0 h-full w-full max-w-md bg-slate-800 border-l-2 border-slate-700 p-6 transform translate-x-full transition-transform duration-300"
+          id="cart-panel"
+        >
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-lg font-bold text-primary">Your Cart</h3>
+            <button
+              onclick="toggleCart()"
+              class="p-2 hover:bg-slate-700 rounded-lg"
+            >
+              <i data-lucide="x" class="w-5 h-5 text-primary"></i>
+            </button>
+          </div>
+          <div id="cart-items" class="space-y-4 overflow-auto flex-1"></div>
+          <div id="cart-empty" class="text-center text-secondary py-16">
+            Your cart is empty
+          </div>
+          <div
+            id="cart-footer"
+            class="hidden border-t border-slate-700 pt-4 mt-6"
+          >
+            <div class="flex justify-between text-lg font-bold mb-4">
+              <span class="text-primary">Total</span
+              ><span id="cart-total" class="mono text-primary">₱0</span>
+            </div>
+            <button
+              class="w-full py-3 btn-primary rounded-lg text-sm font-bold"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        id="search-modal"
+        class="fixed inset-0 z-[110] pointer-events-none opacity-0 transition-opacity duration-300 modal-overlay"
+      >
+        <div
+          class="flex items-start justify-center pt-20 px-6 h-full"
+          onclick="if (event.target === this) toggleSearchModal();"
+        >
+          <div
+            class="w-full max-w-2xl transform transition-all duration-300 scale-95 opacity-0"
+            id="search-content"
+          >
+            <div
+              class="bg-slate-800 border-2 border-slate-700 rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <div class="p-6 space-y-4">
+                <div class="flex items-center gap-3">
+                  <i data-lucide="search" class="w-5 h-5 text-cyan-400"></i
+                  ><input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search products..."
+                    class="search-input flex-1 px-4 py-3 rounded-lg text-sm"
+                  />
+                </div>
+                <div
+                  id="search-results"
+                  class="space-y-2 max-h-96 overflow-auto"
+                ></div>
+                <div id="search-empty" class="text-center text-secondary py-8">
+                  Start typing to search...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="detail-modal"
+        class="fixed inset-0 z-[120] pointer-events-none opacity-0 transition-opacity duration-300 modal-overlay"
+      >
+        <div
+          class="flex items-center justify-center px-6 h-full"
+          onclick="if (event.target === this) closeDetailModal();"
+        >
+          <div
+            class="w-full max-w-2xl transform transition-all duration-300 scale-95 opacity-0"
+            id="detail-content"
+          >
+            <div
+              class="bg-slate-800 border-2 border-slate-700 rounded-2xl overflow-hidden shadow-2xl relative"
+            >
+              <button
+                onclick="closeDetailModal()"
+                class="absolute top-4 right-4 z-10 p-2 hover:bg-slate-700 rounded-lg transition"
+              >
+                <i data-lucide="x" class="w-6 h-6 text-primary"></i>
+              </button>
+              <div class="flex flex-col md:flex-row">
+                <div
+                  class="md:w-1/2 flex items-center justify-center p-6 md:p-8 bg-transparent"
+                >
+                  <img
+                    id="detail-image"
+                    src=""
+                    alt="Product"
+                    class="w-full max-w-sm h-80 object-contain img-shadow"
+                    loading="lazy"
+                    onerror="
+                      this.style.display = 'none';
+                      if (this.nextElementSibling)
+                        this.nextElementSibling.style.display = 'flex';
+                    "
+                  />
+                  <i
+                    id="detail-fallback-icon"
+                    data-lucide="laptop"
+                    class="w-24 h-24 text-slate-500"
+                    style="display: none"
+                  ></i>
+                </div>
+                <div
+                  class="md:w-1/2 p-6 md:p-8 space-y-6 flex flex-col justify-between"
+                >
+                  <div class="space-y-4">
+                    <h2
+                      id="detail-name"
+                      class="text-2xl md:text-3xl font-bold text-primary"
+                    ></h2>
+                    <div class="pt-2">
+                      <p class="text-secondary text-sm mb-2">Price</p>
+                      <p
+                        id="detail-price"
+                        class="text-3xl font-bold text-cyan-400 mono"
+                      ></p>
+                    </div>
+                    <div
+                      id="specs-container"
+                      class="space-y-3 pt-4 border-t border-slate-600"
+                    ></div>
+                  </div>
+                  <button
+                    id="detail-add-btn"
+                    class="w-full py-3 btn-primary rounded-lg text-sm font-bold hover:shadow-lg transition"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
